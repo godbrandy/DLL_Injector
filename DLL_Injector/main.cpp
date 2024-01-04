@@ -1,6 +1,7 @@
 // main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <iostream>
 #include "injection.h"
 
 //bool IsCorrectTargetArchitecture(HANDLE hProc)
@@ -20,8 +21,14 @@
 
 int main()
 {
-	std::wstring dll_path{ L"C:\\path\\to\\file.dll" };	// full path of the dll
-	std::wstring proc_name{ L"game.exe" };				// name of process where you want to inject
+	std::wstring dll_path;							// full path of the dll
+	std::wstring proc_name;							// name of process where you want to inject
+
+	std::cout << "Insert the path to the dll: ";
+	std::wcin >> dll_path;
+	std::cout << "Insert the name of the process in which you want to inject the dll: ";
+	std::wcin >> proc_name;
+
 
 	DWORD proc_id{ GetProcessId(proc_name) };
 
